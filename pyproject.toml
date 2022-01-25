@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "python_search_engine"
+version = "0.1.0"
+description = ""
+authors = ["sdalton <sdalton@student.21-school.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+click = "8.0.3"
+joblib = "1.1.0"
+nltk = "3.6.7"
+regex = "2022.1.18"
+tqdm = "4.62.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
