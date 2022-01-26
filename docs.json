@@ -16,7 +16,7 @@
     "/": {
       "summary": "query parameter is supplied after \"/?query=...\"",
       "delete": {
-        "summary": "Delete -cmdline curl --request DELETE <url> -d 'delete=<int32>'",
+        "summary": "Delete -cmdline curl --request DELETE http://localhost:5000 -d 'delete=int'",
         "description": "",
         "operationId": "",
         "responses": {
