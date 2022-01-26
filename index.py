@@ -41,7 +41,10 @@ def time_rank(res:set[Page], pages):
     return [r for r in sorted(res, key=lambda x: pages[x].created_date, reverse=True)]
 
 def search(query, index, pages:set[Page], ranking=False):
+    if not query:
+        return
     res = set(pages)
+    query = query.encode().decode()
     query = analyze(query)
     if not query:
         print("Either empty query or all words in stopwords list")
@@ -49,7 +52,7 @@ def search(query, index, pages:set[Page], ranking=False):
         res = rank(query, index, pages)
     else:
         for word in query:
-            res = res.intersection(set([p for p in pages if word in pages[p].text]))
-        res = time_rank(res, pages)
-    for r in res:
-        yield r
+            res = res.intersection(set([p for p in pages if word in analyze(pages[p].text)]))
+        if res:
+            res = time_rank(res, pages)
+    return res

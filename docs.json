@@ -1,0 +1,40 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Simple search engine",
+    "version": "0.0",
+    "description": "Simulate search engine with corpus of test sample",
+    "termsOfService": "https://opensource.org/licenses/MIT"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/": {
+      "summary": "query parameter is supplied after \"/?query=...\"",
+      "delete": {
+        "summary": "Delete -cmdline curl --request DELETE <url> -d 'delete=<int32>'",
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get response from index of search engine. The sample of 20 or less pages of file 'posts.csv' which contains all words from query",
+        "description": "First you need launch app 'python3 main.py' in app directory. Query is supplied in address 'http://localhost:5000/?query=\"query\"'. May not work with cmdline because of encoding of terminal",
+        "operationId": "",
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        }
+      }
+    }
+  }
+}

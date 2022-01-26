@@ -26,5 +26,5 @@ def analyze(text):
     tokens = tokenize(text)
     tokens = lowercase_filter(tokens)
     tokens = punctuation_filter(tokens)
-    tokens = stem_filter(tokens)
+    tokens = [token for token in tokens if token not in STEMMER.stopwords]
     return [token for token in tokens if token]
