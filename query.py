@@ -9,9 +9,9 @@ class Query(object):
     query: str
     ranking: bool
     index: Index
-    analyze_query: list[str]
+    analyze_query: list
     res: dict
-    analyze_res: list[(str, str)]
+    analyze_res: list
     all_len: int
     show_len: int
     show_start: int
@@ -25,13 +25,18 @@ class Query(object):
         self.analyze_query = analyze(query)
         self.index = index
         self.res = search(query, index.index, index.pages, ranking=self.ranking)
+        if not self.res:
+            self.res = dict()
         self.all_len = len(self.res)
         self.show_len = sizequery
         self.show_start = 1
+        if not self.res:
+            self.show_start = 0
         self.show_end = self.all_len if self.show_start + self.show_len > self.all_len else self.show_start + self.show_len - 1
         self.show_prev = None
         self.show_next = None if self.show_start + self.show_len > self.all_len else self.show_start + self.show_len
-        self.analyze_res = {str(self.res[p]): zip(analyze_all(index.pages[self.res[p]].text), index.pages[self.res[p]].text.split()) \
+        if self.res:
+            self.analyze_res = {str(self.res[p]): zip(analyze_all(index.pages[self.res[p]].text), index.pages[self.res[p]].text.split()) \
                        for p in range(self.show_start - 1, self.show_end, 1)}
 
     def set_show_params(self, move):
@@ -47,10 +52,11 @@ class Query(object):
                 self.show_start = self.show_prev
                 self.show_end = self.all_len if self.show_start + self.show_len > self.all_len else self.show_start + self.show_len - 1
                 self.show_prev = None if self.show_start == 1 else (1 if self.show_start - self.show_len < 1 else self.show_start - self.show_len)
-        self.analyze_res = {str(self.res[p]): zip(analyze_all(self.index.pages[self.res[p]].text), self.index.pages[self.res[p]].text.split()) \
+        if self.res:
+            self.analyze_res = {str(self.res[p]): zip(analyze_all(self.index.pages[self.res[p]].text), self.index.pages[self.res[p]].text.split()) \
                             for p in range(self.show_start - 1, self.show_end, 1)}
 
-def rank(self, query, index, pages:set[Page]):
+def rank(self, query, index, pages:set):
     results = []
     if not pages:
         return results
@@ -63,10 +69,10 @@ def rank(self, query, index, pages:set[Page]):
         results.append((doc, score))
     return [r[0] for r in sorted(results, key=lambda x: x[1], reverse=True)]
 
-def time_rank(res:set[Page], pages):
+def time_rank(res:set, pages):
     return [r for r in sorted(res, key=lambda x: pages[x].created_date, reverse=True)]
 
-def search(query, index, pages:set[Page], ranking=False):
+def search(query, index, pages:set, ranking=False):
     if not query:
         return
     res = set(pages)
