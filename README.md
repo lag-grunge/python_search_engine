@@ -27,11 +27,11 @@ http://localhost:5000/?query="<str>"
 
 #### Example
 
-![alt text](https://github.com/lag-grunge/python_search_engine/blob/master/query_example.png 160x120)
+![alt text](https://user-images.githubusercontent.com/79085615/158174102-28fd54bb-2df7-4d0b-8aa2-608e4fe8b435.png)
 
 move (next, prev)
 
-![alt text](https://github.com/lag-grunge/python_search_engine/blob/master/move_next_prev.png 160x120)
+![alt text](https://user-images.githubusercontent.com/79085615/158174118-37caef71-d0c0-44e5-aef2-4f004e43ffa6.png)
 
 DELETE
 ```bash
@@ -40,8 +40,8 @@ $ curl --request DELETE http://localhost:5000 -d 'delete=<int>'
 
 #### Example
 
-![alt text](https://github.com/lag-grunge/python_search_engine/blob/master/delete_example.png 160x120)
+![alt text](https://user-images.githubusercontent.com/79085615/158174112-890df077-1517-4668-bd87-bf06cd7e92e9.png)
 
-![alt text](https://github.com/lag-grunge/python_search_engine/blob/master/query_afre.png 160x120)
+![alt text](https://user-images.githubusercontent.com/79085615/158174114-4c72a829-23ff-46c2-8036-170798cbb86a.png)
 
 
