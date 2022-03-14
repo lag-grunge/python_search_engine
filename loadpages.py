@@ -1,10 +1,11 @@
 import io
 import csv
 from page import Page
+from app import basedir
 
 def loadpages(sizecorp, file='posts.csv'):
     result = []
-    with io.open(file, mode='r', encoding='utf-8', newline='') as f:
+    with io.open(basedir + "/../" + file, mode='r', encoding='utf-8', newline='') as f:
         f.readline()
         pagereader = csv.reader(f, delimiter=',')
         for (id, row) in enumerate(pagereader):

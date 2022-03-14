@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <a href={{ url_for('show_query', query=query.query, move='next') }}>Next</a>
+    <a href={{ url_for('show_query', query=query.query, move='prev') }}>Prev</a>
+{% endblock %}

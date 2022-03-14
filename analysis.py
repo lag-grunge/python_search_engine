@@ -27,4 +27,11 @@ def analyze(text):
     tokens = lowercase_filter(tokens)
     tokens = punctuation_filter(tokens)
     tokens = [token for token in tokens if token not in STEMMER.stopwords]
-    return [token for token in tokens if token]
+    return tokens
+
+def analyze_all(text):
+    tokens = tokenize(text)
+    tokens = lowercase_filter(tokens)
+    tokens = punctuation_filter(tokens)
+    tokens = [token if token not in STEMMER.stopwords else None for token in tokens]
+    return tokens
