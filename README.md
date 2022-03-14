@@ -25,8 +25,11 @@ GET
 http://localhost:5000/?query="<str>"
 ```
 ####Example
+
 ![alt text](https://github.com/lag-grunge/pythontest/blob/master/query_example.png?raw=true)
-move (next, prev)
+
+####move (next, prev)
+
 ![alt text](https://github.com/lag-grunge/pythontest/blob/master/move_next_prev.png?raw=true)
 
 DELETE
@@ -34,7 +37,9 @@ DELETE
 $ curl --request DELETE http://localhost:5000 -d 'delete=<int>'
 ```
 ####Example
+
 ![alt text](https://github.com/lag-grunge/pythontest/blob/master/delete_example.png?raw=true)
+
 ![alt text](https://github.com/lag-grunge/pythontest/blob/master/query_afre.png?raw=true)
 
 
