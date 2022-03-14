@@ -7,14 +7,17 @@ Run web-service on localhost with Flask.
 
 ## Requirements
 
-Python 3.6-3.9
+Python 3.8,3.9
 
 ## Usage
 
 Run from the command line:
 
 ```bash
+$ git clone https://github.com/lag-grunge/python_search_engine/
+$ cd $_
 $ virtualenv --python=(PATH to python bin e.g. /usr/bin/python3.9) venv
+$ source venv/bin/activate
 $ pip install -r requirements.txt
 $ python main.py
 ```
