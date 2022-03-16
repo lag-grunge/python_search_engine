@@ -3,10 +3,6 @@ from analysis import analyze
 from page import Page
 
 class Index:
-    loadpgs: list
-    pages: dict
-    index: dict
-
     def __init__(self,  listpages: list):
         self.loadpgs = listpages
         self.pages = dict()

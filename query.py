@@ -6,18 +6,6 @@ from page import Page
 sizequery = 10
 
 class Query(object):
-    query: str
-    ranking: bool
-    index: Index
-    analyze_query: list
-    res: dict
-    analyze_res: list
-    all_len: int
-    show_len: int
-    show_start: int
-    show_prev: int
-    show_next: int
-
 
     def __init__(self, query: str, index : Index, ranking=False):
         self.query = query
